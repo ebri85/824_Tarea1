@@ -20,9 +20,10 @@ public class main {
        
         int opcion , cantidad, cont =1, codigo;
         char salir;
-       // Codorniz c;
+        Codorniz c;
         Codorniz[] codornices = new Codorniz[2];
-        double Total;
+        double totalP =0,totalA = 0,totalJ = 0;
+        int cant;
         Scanner entrada = new Scanner( System.in);
         
         
@@ -40,13 +41,60 @@ public class main {
                     case 1:
                         for(int i = 0 ; i< codornices.length; i++){
                             
-                            System.out.println("Digite la cantidad de Sacos para Alimento de " + codornices[i].getNombre() + "\n");
+                            System.out.println("Digite la cantidad de Codornices tipo => " + codornices[i].getNombre() + "\n");
                             
+                            switch(i)
+                            {
+                                case 0:
+                                    cant = entrada.nextInt();
+                                    totalP= RealizarCalculo(cant,codornices[i].getPrecioAlimento());
+                                    
+                                    totalP -= codornices[i].CalculaDescuento(totalP,codornices[i]);
+                                    
+                                    break;
+                                 
+                                            
+                                case 1:
+                                     cant = entrada.nextInt();
+                                    totalJ= RealizarCalculo(cant,codornices[i].getPrecioAlimento());
+                                    
+                                    totalJ -= codornices[i].CalculaDescuento(totalJ,codornices[i]);
+                                    
+                                    break;
+                                case 2:
+                                     cant = entrada.nextInt();
+                                    totalA= RealizarCalculo(cant,codornices[i].getPrecioAlimento());
+                                    
+                                    totalA -= codornices[i].CalculaDescuento(totalA,codornices[i]);
+                                    
+                                    
+                                    break;
+                                    
+                                default:
+                                    
+                                    break;
+                                            
+                            }
                             
-                            
-                           
+                                    
+                       
+
                         }
                         
+                          break;
+                
+                    case 2:
+                                 System.out.println("***Cantidad de Sacos que se deben de Comprar***\n\n");
+                                 
+                                 System.out.println(codornices[0].toString() +"Total de Sacos que se deben de Comprar" + totalP);
+                                 System.out.println(codornices[1].toString() +"Total de Sacos que se deben de Comprar" + totalJ);
+                                 System.out.println(codornices[2].toString() +"Total de Sacos que se deben de Comprar" + totalA);
+                        break;
+                        
+                    default:
+                        
+                        
+                        break;
                     
                 }
                 
@@ -85,13 +133,26 @@ public class main {
     
      
        
-       public void RealizarCalculo(int cant, Codorniz c)
+       public static double RealizarCalculo(int cant, double prec)
+               /*realiza el calculo, tomando en cosideracion la cantidad de
+               codornices */
        {
            
+           double resultado;
            
+           resultado = (cant%2 ==0)? cant : cant+1;
+             
+           return resultado;
            
        }
-   
+       
+        public static void GeneraTipoCodornices(Codorniz[] c)
+        {
+            c[0] = new Codorniz(1, "Polluelo", "Crecimiento", 15840);
+            c[1] = new Codorniz(2, "Joven", "Desarrollo", 30045);
+            c[2] = new Codorniz(3, "Adulto", "Mantenimiento", 43200);
+            
+        }
     
     
 }

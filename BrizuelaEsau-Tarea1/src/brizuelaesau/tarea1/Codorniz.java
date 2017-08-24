@@ -82,31 +82,12 @@ public class Codorniz {
     @Override
     public String toString() {
      
-        switch(codTipo)
-        {
-            case 1: 
-                 return "Codorniz{" + "NOMBRE=" + nombre + ", tipoAlimento=" + tipoAlimento + ", precioAlimento=" + precioAlimento + '}';
-                 
-                 
-            case 2:
-                
-                 return "Codorniz{" + "NOMBRE=" +nombre + ", tipoAlimento="  + tipoAlimento + ", precioAlimento=" + precioAlimento + '}';
-  
-            
-            case 3:
-                
-                 return "Codorniz{" + "NOMBRE=" + nombre + ", tipoAlimento=" + tipoAlimento + ", precioAlimento=" + precioAlimento + '}';
-                 
-            default:
-                
-                System.out.println("Errr");
-        }
-        
-          return null;
+      return "Codorniz{" + "NOMBRE=" + nombre + ", tipoAlimento=" + tipoAlimento + '}';
+               
        
     }
             
-    public double CalculaDescuento(int cant, Codorniz c )
+    public double CalculaDescuento(double tCosto, Codorniz c )
            /*metodo que recibe de parametro un Objeto Codorniz y cantidad
             con la ayuda del switch toma la decision que tipo de desc 
             realizar y con estos retorna el descuento aplicado para restarlo al total. */
@@ -121,17 +102,17 @@ public class Codorniz {
             case 1:         
                 
                 desc = 0.25;
-           return resultado = ( ( cant * c.getPrecioAlimento() ) *desc );
+           return resultado = ( tCosto *desc );
 
             case 2:
             
                 desc = 0.65;
-             return resultado = ( ( cant * c.getPrecioAlimento() ) *desc );
+              return resultado = ( tCosto *desc );
            
             case 3:
                 
                 desc = 015;
-                return resultado = ( ( cant * c.getPrecioAlimento() ) *desc );
+                  return resultado = ( tCosto *desc );
                 
         }       
         
