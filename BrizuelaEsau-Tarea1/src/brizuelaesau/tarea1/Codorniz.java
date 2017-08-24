@@ -14,35 +14,21 @@ package brizuelaesau.tarea1;
 public class Codorniz {
     
     private int codTipo;
-    private String tipo;
+    private String nombre;
     private String tipoAlimento;
     private double precioAlimento;
     
-    
-       public  enum Nombre
-       {
-           POLLUELO (1),
-           JOVEN (2), 
-           ADULTO (3); 
-           
-           private int valor;
-           
-           private Nombre (int valor)
-           {
-               this.valor = valor;
-           }
-       }  
-
     
             public Codorniz()
             {
                 
             }
 
-            public Codorniz(int codTipo, String tipoAlimento, double precioAlimento) 
+            public Codorniz(int codTipo, String nombre,String tipoAlimento, double precioAlimento) 
                     
             {
                 this.codTipo = codTipo;
+                this.nombre = nombre;
                 this.tipoAlimento = tipoAlimento;
                 this.precioAlimento = precioAlimento;                                              
             }   
@@ -55,6 +41,16 @@ public class Codorniz {
             public int getCodTipo()
             {
                 return codTipo;
+            }
+            
+            public void setNombre(String nombre)
+            {
+                this.nombre = nombre;
+            }
+            
+            public String getNombre()
+            {
+                return nombre;
             }
             
             
@@ -80,6 +76,7 @@ public class Codorniz {
             }
             
 
+            
   
 
     @Override
@@ -88,17 +85,17 @@ public class Codorniz {
         switch(codTipo)
         {
             case 1: 
-                 return "Codorniz{" + "NOMBRE=" + Nombre.POLLUELO+ ", tipo=" + tipo + ", tipoAlimento=" + tipoAlimento + ", precioAlimento=" + precioAlimento + '}';
+                 return "Codorniz{" + "NOMBRE=" + nombre + ", tipoAlimento=" + tipoAlimento + ", precioAlimento=" + precioAlimento + '}';
                  
                  
             case 2:
                 
-                 return "Codorniz{" + "NOMBRE=" + Nombre.JOVEN+ ", tipo=" + tipo + ", tipoAlimento=" + tipoAlimento + ", precioAlimento=" + precioAlimento + '}';
+                 return "Codorniz{" + "NOMBRE=" +nombre + ", tipoAlimento="  + tipoAlimento + ", precioAlimento=" + precioAlimento + '}';
   
             
             case 3:
                 
-                 return "Codorniz{" + "NOMBRE=" + Nombre.ADULTO+ ", tipo=" + tipo + ", tipoAlimento=" + tipoAlimento + ", precioAlimento=" + precioAlimento + '}';
+                 return "Codorniz{" + "NOMBRE=" + nombre + ", tipoAlimento=" + tipoAlimento + ", precioAlimento=" + precioAlimento + '}';
                  
             default:
                 

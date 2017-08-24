@@ -18,38 +18,46 @@ public class main {
      */
     public static void main(String[] args) {
        
-         int opcion , cantidad;
-         char salir;
-        Codorniz codorniz;
+        int opcion , cantidad, cont =1, codigo;
+        char salir;
+       // Codorniz c;
+        Codorniz[] codornices = new Codorniz[2];
         double Total;
         Scanner entrada = new Scanner( System.in);
+        
+        
         try{          
-                       
+            
+            
             opcion = OpcionMenu();
+            GeneraTipoCodornices(codornices);
             
             do
             {
                 switch (opcion)
                 {
                     
+                    case 1:
+                        for(int i = 0 ; i< codornices.length; i++){
+                            
+                            System.out.println("Digite la cantidad de Sacos para Alimento de " + codornices[i].getNombre() + "\n");
+                            
+                            
+                            
+                           
+                        }
+                        
+                    
                 }
                 
-                System.out.println("Desea Salir? -- Digite S(salir) / N (continuar");
+                System.out.println("Desea Salir? -- Digite 'S'-(salir) / 'N'-(continuar)");
                 salir = entrada.next().charAt(0);
                 
                 
 
             } while(Character.toUpperCase(salir)!='S');
             
-            
-            
-                
-            
-            
-            
-            
-            
-            
+           
         }catch(Exception e)
         {
             System.out.println("Error ==> " + e.getMessage() );
@@ -75,6 +83,15 @@ public class main {
         return entrada.nextInt(op);
     }
     
+     
+       
+       public void RealizarCalculo(int cant, Codorniz c)
+       {
+           
+           
+           
+       }
+   
     
     
 }
