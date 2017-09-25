@@ -140,7 +140,9 @@ public class main {
            
            double resultado;
            
-           resultado = (cant%2 ==0)? cant : cant+1;
+           double consumo = 0.5; //cada codorniz consume medio saco.
+           
+           resultado = (cant%2 ==0)? ((consumo * cant)*prec) : (((consumo*cant)+consumo)*prec);
              
            return resultado;
            
