@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+
  */
 package brizuelaesau.tarea1;
 
@@ -111,7 +109,7 @@ public class Codorniz {
            
             case 3:
                 
-                desc = 015;
+                desc = 0.15;
                   return resultado = ( tCosto *desc );
                 
         }       

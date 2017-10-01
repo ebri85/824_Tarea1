@@ -18,69 +18,60 @@ public class main {
      */
     public static void main(String[] args) {
        
-        int opcion , cantidad, cont =1, codigo;
+        int opcion , cantidad, cont =1, codigo, tipo=1;
         char salir;
         Codorniz c;
-        Codorniz[] codornices = new Codorniz[2];
+        Codorniz[] codornices;
+        codornices = new Codorniz[3];
         double totalP =0,totalA = 0,totalJ = 0;
         int cant;
         Scanner entrada = new Scanner( System.in);
         
-        
+         
+            
         try{          
-            
-            
-            opcion = OpcionMenu();
-            GeneraTipoCodornices(codornices);
+
+           GeneraTipoCodornices(codornices);
             
             do
             {
+                opcion = OpcionMenu();
+                
                 switch (opcion)
                 {
                     
                     case 1:
-                        for(int i = 0 ; i< codornices.length; i++){
-                            
+                        int i =0;
+                        do{
                             System.out.println("Digite la cantidad de Codornices tipo => " + codornices[i].getNombre() + "\n");
                             
-                            switch(i)
-                            {
-                                case 0:
-                                    cant = entrada.nextInt();
-                                    totalP= RealizarCalculo(cant,codornices[i].getPrecioAlimento());
-                                    
-                                    totalP -= codornices[i].CalculaDescuento(totalP,codornices[i]);
-                                    
-                                    break;
-                                 
-                                            
-                                case 1:
-                                     cant = entrada.nextInt();
-                                    totalJ= RealizarCalculo(cant,codornices[i].getPrecioAlimento());
-                                    
-                                    totalJ -= codornices[i].CalculaDescuento(totalJ,codornices[i]);
-                                    
-                                    break;
-                                case 2:
-                                     cant = entrada.nextInt();
-                                    totalA= RealizarCalculo(cant,codornices[i].getPrecioAlimento());
-                                    
-                                    totalA -= codornices[i].CalculaDescuento(totalA,codornices[i]);
-                                    
-                                    
-                                    break;
-                                    
-                                default:
-                                    
-                                    break;
-                                            
-                            }
+                            cant= entrada.nextInt();
                             
+                                                       
+                                switch(tipo)
+                                {
+                                    case 1:
+                                        totalP = RealizarCalculo(cant,codornices[i].getPrecioAlimento());
+                                        
+                                        break;
+                                    case 2:
+                                        totalJ = RealizarCalculo(cant,codornices[i].getPrecioAlimento());
+                                        
+                                        break;
+                                        
+                                    case 3:
+                                        totalA = RealizarCalculo(cant,codornices[i].getPrecioAlimento());
+                                        
+                                        break;
                                     
-                       
-
-                        }
-                        
+                                        default:
+                                            
+                                            break;
+                                    
+                                }
+                        tipo++;            
+                        i++;                        
+                        }while(i<3);
                           break;
                 
                     case 2:
@@ -98,7 +89,7 @@ public class main {
                     
                 }
                 
-                System.out.println("Desea Salir? -- Digite 'S'-(salir) / 'N'-(continuar)");
+                System.out.println("Desea Salir? -- Digite S-(salir) / N-(continuar)");
                 salir = entrada.next().charAt(0);
                 
                 
@@ -108,7 +99,7 @@ public class main {
            
         }catch(Exception e)
         {
-            System.out.println("Error ==> " + e.getMessage() );
+            System.out.println("Error ==> " + e.getMessage());
             
         }
     }
@@ -117,7 +108,8 @@ public class main {
             //metodo que imprime el menu y retorna la opcion digitada por el usuario;
     { 
         Scanner entrada = new Scanner(System.in);
-        int op = 0;
+        
+        int resultado ;
         String menu = "**********CODORSOFT 1.0\"**********'\n\n";
         
         menu+= "1 -- Ingreso de Cantidades\n";
@@ -126,9 +118,12 @@ public class main {
         
         System.out.println(menu);
         
-        System.out.println("Digite la Opcion que desea Ingresar");
-       
-        return entrada.nextInt(op);
+      //  System.out.println("Digite la Opcion que desea Ingresar");
+        
+       resultado = entrada.nextInt();
+        
+        return resultado;               
+        
     }
     
      
