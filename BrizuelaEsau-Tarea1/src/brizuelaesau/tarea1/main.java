@@ -5,6 +5,8 @@
  */
 package brizuelaesau.tarea1;
 
+import java.text.NumberFormat;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -24,10 +26,10 @@ public class main {
         Codorniz[] codornices;
         codornices = new Codorniz[3];
         double totalP =0,totalA = 0,totalJ = 0;
-        int cant;
+        int cant , cantSacosP =0,cantSacosJ =0, cantSacosA=0;
         Scanner entrada = new Scanner( System.in);
-        
-         
+        NumberFormat nf = NumberFormat.getInstance();
+      
             
         try{          
 
@@ -36,7 +38,7 @@ public class main {
             do
             {
                 opcion = OpcionMenu();
-                
+                //switch para mantenerse dentro del menu
                 switch (opcion)
                 {
                     
@@ -47,19 +49,23 @@ public class main {
                             
                             cant= entrada.nextInt();
                             
-                                                       
+                            
+                                   //Switch que ayuda para recorrer el Arreglo de Codornices y calcular cada uno de los totales de Sacos con su precio                    
                                 switch(tipo)
                                 {
                                     case 1:
+                                        cantSacosP = (int) ((cant %2 == 0)? (cant * 0.5) : ((cant*0.5)+0.5));
                                         totalP = RealizarCalculo(cant,codornices[i].getPrecioAlimento());
                                         
                                         break;
                                     case 2:
+                                        cantSacosJ = (int) ((cant %2 == 0)? (cant * 0.5) : ((cant*0.5)+0.5));
                                         totalJ = RealizarCalculo(cant,codornices[i].getPrecioAlimento());
                                         
                                         break;
                                         
                                     case 3:
+                                        cantSacosA = (int) ((cant %2 == 0)? (cant * 0.5) : ((cant*0.5)+0.5));
                                         totalA = RealizarCalculo(cant,codornices[i].getPrecioAlimento());
                                         
                                         break;
@@ -77,9 +83,9 @@ public class main {
                     case 2:
                                  System.out.println("***Cantidad de Sacos que se deben de Comprar***\n\n");
                                  
-                                 System.out.println(codornices[0].toString() +"Total de Sacos que se deben de Comprar" + totalP);
-                                 System.out.println(codornices[1].toString() +"Total de Sacos que se deben de Comprar" + totalJ);
-                                 System.out.println(codornices[2].toString() +"Total de Sacos que se deben de Comprar" + totalA);
+                                 System.out.println("Alimento para "+codornices[0].getNombre() +"  se deben de Comprar = " + cantSacosP+" Sacos" +"  para un TOTAL DE $" + nf.format(totalP));
+                                 System.out.println("Alimento para "+codornices[1].getNombre() +"  se deben de Comprar = " + cantSacosJ+" Sacos"  +"  para un TOTAL DE $" + nf.format(totalJ));
+                                 System.out.println("Alimento para "+codornices[2].getNombre() +"  se deben de Comprar = " + cantSacosA+" Sacos" +"  para un TOTAL DE $"+ nf.format(totalA));
                         break;
                         
                     default:
@@ -89,7 +95,7 @@ public class main {
                     
                 }
                 
-                System.out.println("Desea Salir? -- Digite S-(salir) / N-(continuar)");
+                System.out.println("\n\nDesea Salir? -- Digite 'S'-(salir) / 'N'-(continuar)");
                 salir = entrada.next().charAt(0);
                 
                 
@@ -99,7 +105,7 @@ public class main {
            
         }catch(Exception e)
         {
-            System.out.println("Error ==> " + e.getMessage());
+            System.err.println("Error ==> " +  e.toString() + "\n\n");
             
         }
     }
@@ -110,16 +116,14 @@ public class main {
         Scanner entrada = new Scanner(System.in);
         
         int resultado ;
-        String menu = "**********CODORSOFT 1.0\"**********'\n\n";
+        String menu = "**********CODORSOFT 1.0**********\n\n";
         
         menu+= "1 -- Ingreso de Cantidades\n";
         menu+= "2 -- Mostrar Resultados\n";
         menu+= "0 -- Salir\n";
         
         System.out.println(menu);
-        
-      //  System.out.println("Digite la Opcion que desea Ingresar");
-        
+ 
        resultado = entrada.nextInt();
         
         return resultado;               
@@ -145,6 +149,7 @@ public class main {
        
         public static void GeneraTipoCodornices(Codorniz[] c)
         {
+            //Tabla de Tipo de Codorniz y Alimentos
             c[0] = new Codorniz(1, "Polluelo", "Crecimiento", 15840);
             c[1] = new Codorniz(2, "Joven", "Desarrollo", 30045);
             c[2] = new Codorniz(3, "Adulto", "Mantenimiento", 43200);
