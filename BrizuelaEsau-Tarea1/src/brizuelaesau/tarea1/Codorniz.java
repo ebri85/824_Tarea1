@@ -88,7 +88,9 @@ public class Codorniz {
     public double CalculaDescuento(double tCosto, Codorniz c )
            /*metodo que recibe de parametro un Objeto Codorniz y cantidad
             con la ayuda del switch toma la decision que tipo de desc 
-            realizar y con estos retorna el descuento aplicado para restarlo al total. */
+            realizar y con estos retorna el descuento aplicado para restarlo al total. 
+            De igual forma no se indica que porcentaje de Descuento aplicac para cada uno, igual este metodo no es
+            utilizado segun la Rubrica*/
           
     { 
         double resultado;

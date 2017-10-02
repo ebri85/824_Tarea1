@@ -38,7 +38,7 @@ public class main {
             do
             {
                 opcion = OpcionMenu();
-                //switch para mantenerse dentro del menu
+                //switch donde se ingresan a las opciones del menu impreso
                 switch (opcion)
                 {
                     
@@ -83,9 +83,9 @@ public class main {
                     case 2:
                                  System.out.println("***Cantidad de Sacos que se deben de Comprar***\n\n");
                                  
-                                 System.out.println("Alimento para "+codornices[0].getNombre() +"  se deben de Comprar = " + cantSacosP+" Sacos" +"  para un TOTAL DE $" + nf.format(totalP));
-                                 System.out.println("Alimento para "+codornices[1].getNombre() +"  se deben de Comprar = " + cantSacosJ+" Sacos"  +"  para un TOTAL DE $" + nf.format(totalJ));
-                                 System.out.println("Alimento para "+codornices[2].getNombre() +"  se deben de Comprar = " + cantSacosA+" Sacos" +"  para un TOTAL DE $"+ nf.format(totalA));
+                                 System.out.println("Alimento para "+codornices[0].getNombre() +"  se deben de Comprar = " + cantSacosP+" Sacos" +"  para un TOTAL DE ¢" + nf.format(totalP));
+                                 System.out.println("Alimento para "+codornices[1].getNombre() +"  se deben de Comprar = " + cantSacosJ+" Sacos"  +"  para un TOTAL DE ¢" + nf.format(totalJ));
+                                 System.out.println("Alimento para "+codornices[2].getNombre() +"  se deben de Comprar = " + cantSacosA+" Sacos" +"  para un TOTAL DE ¢"+ nf.format(totalA));
                         break;
                         
                     default:
@@ -134,7 +134,7 @@ public class main {
        
        public static double RealizarCalculo(int cant, double prec)
                /*realiza el calculo, tomando en cosideracion la cantidad de
-               codornices */
+               codornices no me fue necesario realizar tres metodos para calcular el costo */
        {
            
            double resultado;
@@ -149,7 +149,7 @@ public class main {
        
         public static void GeneraTipoCodornices(Codorniz[] c)
         {
-            //Tabla de Tipo de Codorniz y Alimentos
+            //Tabla de Tipo de Codorniz y Alimentos, es utilizada para realizar el calculo de la compra de alimentos
             c[0] = new Codorniz(1, "Polluelo", "Crecimiento", 15840);
             c[1] = new Codorniz(2, "Joven", "Desarrollo", 30045);
             c[2] = new Codorniz(3, "Adulto", "Mantenimiento", 43200);
